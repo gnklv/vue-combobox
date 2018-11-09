@@ -1,28 +1,51 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="application">
+    <div class="layout">
+      <Combobox
+        v-model="selectedCity"
+        :options="cities"
+        :filter-function="applySearchFilter"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import { mapGetters, mapActions } from "vuex";
+import { GET_CITIES, FETCH_CITIES } from "@/store/types";
+import Combobox from "@/components/Combobox";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    Combobox
+  },
+  data() {
+    return {
+      selectedCity: ""
+    };
+  },
+  computed: {
+    ...mapGetters({
+      cities: GET_CITIES
+    })
+  },
+  created() {
+    this.fetchCities();
+  },
+  methods: {
+    ...mapActions({
+      fetchCities: FETCH_CITIES
+    }),
+    applySearchFilter(search, options) {
+      return options.filter(option =>
+        option.toLowerCase().startsWith(search.toLowerCase())
+      );
+    }
   }
 };
 </script>
 
 <style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "/assets/styles/main";
 </style>

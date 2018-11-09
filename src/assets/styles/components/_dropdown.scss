@@ -1,0 +1,19 @@
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 32rem;
+  overflow-y: auto;
+  list-style: none;
+  border: .1rem solid $dropdown-border-color;
+
+  &__item {
+    padding: .6rem 1rem;
+
+    &--highlighted {
+      background-color: $combobox-outline-color;
+      color: $color-white;
+    }
+  }
+}

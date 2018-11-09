@@ -1,0 +1,32 @@
+.combobox {
+  position: relative;
+
+  &__field {
+    width: 28rem;
+    padding: .6rem 2.7rem .6rem 1rem;
+    border: .1rem solid $combobox-border-color;
+    font-size: $default-font-size;
+    line-height: $default-line-height;
+    color: $default-font-color;
+
+    &:focus {
+      outline: .2rem solid $combobox-outline-color;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $combobox-placeholder-color;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: 1rem;
+    top: 1.6rem;
+    z-index: 2;
+    border-width: .4rem .4rem 0;
+    border-style: solid;
+    border-color: rgb(170, 170, 170) transparent transparent;
+    border-image: initial;
+    pointer-events: none;
+  }
+}

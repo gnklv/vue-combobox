@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('./assets/fonts/SegoeUI.woff2') format('woff2'),
+  url('./assets/fonts/SegoeUI.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: $default-font-family;
+  font-size: $default-font-size;
+  line-height: $default-line-height;
+  color: $default-font-color;
+}
